@@ -15,8 +15,6 @@ It can extract:
 > [!NOTE]\
 > Bubbles detection is made possible thanks to [BubbleGun](https://github.com/fawaz-dabbaghieh/bubble_gun), Fawaz Dabbaghie, Jana Ebler, Tobias Marschall, BubbleGun: enumerating bubbles and superbubbles in genome graphs, Bioinformatics, Volume 38, Issue 17, September 2022, Pages 4217–4219, https://doi.org/10.1093/bioinformatics/btac448
 
-# Available commands
-
 # Installation
 
 Installation is made using `pip` with the provided `setup.py` file.
@@ -30,7 +28,7 @@ python -m pip install .
 
 Once installed, command-line become available out-of-the-box. You can check everything went well by printing the manpage with `sharepg -h`.
 
-# Usage
+# Available commands
 
 Let's assume you happen to have:
 + a GFA graph, uncompressed or not
