@@ -1,2 +1,3 @@
 # sharepg
-Analysis of shared parts of a pangenome
+
+Tool to analyse shared sequences between populations in pangenomes.
