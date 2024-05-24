@@ -13,7 +13,7 @@ if CURRENT_PYTHON < REQUIRED_PYTHON:
 
 setup(
     name=NAME,
-    version='0.0.1',
+    version='0.0.2',
     description='Variation graph simulation tool',
     url='https://github.com/Tharos-ux/sharepg',
     author='Tharos',
@@ -25,9 +25,9 @@ setup(
     long_description=open("README.md", encoding='utf-8').read(),
     long_description_content_type='text/markdown',
     install_requires=[
-        'tharos-pytools',
-        'gfagraphs',
-        'BubbleGun',
+        'tharos-pytools>=0.0.32',
+        'gfagraphs>=0.3.8',
+        'BubbleGun>=1.1.8',
     ],
     entry_points={'console_scripts': ['sharepg=sharepg.main:main']}
 )
