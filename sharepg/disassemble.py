@@ -46,11 +46,12 @@ def disassemble_graph(
     path_a: set[str],
     path_b: set[str],
     reference: str,
-    threshold: float = 1.,
+    threshold_upper: float = 1.,
+    threshold_lower: float = 0.,
 ) -> dict[str, bool]:
     """Iterates over all the nodes of the graph, and compares the paths traversing each of them.
     Returns a dict containing every node of the graph associated to a boolean exploring a criterion
-    If the node has almost all paths of A (modulo threshold) and almost any of the paths of B (modulo 1-threshold).
+    If the node has almost all paths of A (modulo threshold_upper) and almost any of the paths of B (modulo threshold_lower).
     A threshold of 1 means that every path of A must go through the node and no path of B should,
     whereas a threshold of 0 menas the opposite.
 
@@ -68,10 +69,15 @@ def disassemble_graph(
         a float in between 0 and 1, by default 1.
     """
     # Confinig threshold between boundaries
-    if threshold > 1.:
-        threshold: float = 1.
-    elif threshold < 0.:
-        threshold: float = 0.
+    if threshold_upper > 1.:
+        threshold_upper: float = 1.
+    elif threshold_upper < 0.:
+        threshold_upper: float = 0.
+
+    if threshold_lower > 1.:
+        threshold_lower: float = 1.
+    elif threshold_lower < 0.:
+        threshold_lower: float = 0.
     # Return structure
     node_result: dict[str, bool] = dict()
     # Main loop over all segments of the graph
@@ -80,7 +86,7 @@ def disassemble_graph(
         common_paths_a: int = len(path_a.intersection(paths_of_node))
         common_paths_b: int = len(path_b.intersection(paths_of_node))
         node_result[segment_name] = common_paths_a >= len(
-            path_a) * threshold and common_paths_b <= len(path_b) * (1-threshold)
+            path_a) * threshold_upper and common_paths_b <= len(path_b) * (threshold_lower)
     return node_result
 
 
