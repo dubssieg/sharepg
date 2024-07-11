@@ -79,7 +79,10 @@ parser_disintervals.add_argument(
     '-r', '--reference', type=str, help='A reference name. Must be in one of the sets.'
 )
 parser_disintervals.add_argument(
-    '-t', '--threshold', type=float, help='A threshold (proprortion of graphs that shall go through).', default=1.
+    '-t', '--threshold_upper', type=float, help='A threshold (proprortion of graphs that shall go through).', default=1.
+)
+parser_disintervals.add_argument(
+    '-l', '--threshold_lower', type=float, help='B threshold (proprortion of graphs that shall not go through).', default=1.
 )
 
 
@@ -132,7 +135,8 @@ def main() -> None:
                     path_a=set(args.set_a),
                     path_b=set(args.set_b),
                     reference=args.reference,
-                    threshold=args.threshold,
+                    threshold_upper=args.threshold_upper,
+                    threshold_lower=args.threshold_lower,
                 ),
             )
             for items in bubbles:
@@ -157,7 +161,8 @@ def main() -> None:
                 path_a=set(args.set_a),
                 path_b=set(args.set_b),
                 reference=args.reference,
-                threshold=args.threshold,
+                threshold_upper=args.threshold_upper,
+                threshold_lower=args.threshold_lower,
             )
             for node_name, status in nodes.items():
                 print(f'{node_name}\t{int(status)}')
@@ -180,7 +185,8 @@ def main() -> None:
                     path_a=set(args.set_a),
                     path_b=set(args.set_b),
                     reference=args.reference,
-                    threshold=args.threshold,
+                    threshold_upper=args.threshold_upper,
+                    threshold_lower=args.threshold_lower,
                 ),
                 paths_a=set(args.set_a),
             )
