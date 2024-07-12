@@ -36,7 +36,10 @@ parser_disbubbles.add_argument(
     '-r', '--reference', type=str, help='A reference name. Must be in one of the sets.'
 )
 parser_disbubbles.add_argument(
-    '-t', '--threshold', type=float, help='A threshold (proprortion of graphs that shall go through).', default=1.
+    '-t', '--threshold_upper', type=float, help='A threshold (proprortion of graphs that shall go through).', default=1.
+)
+parser_disbubbles.add_argument(
+    '-l', '--threshold_lower', type=float, help='B threshold (proprortion of graphs that shall not go through).', default=0.
 )
 
 ###
@@ -57,7 +60,10 @@ parser_disnodes.add_argument(
     '-r', '--reference', type=str, help='A reference name. Must be in one of the sets.'
 )
 parser_disnodes.add_argument(
-    '-t', '--threshold', type=float, help='A threshold (proprortion of graphs that shall go through).', default=1.
+    '-t', '--threshold_upper', type=float, help='A threshold (proprortion of graphs that shall go through).', default=1.
+)
+parser_disnodes.add_argument(
+    '-l', '--threshold_lower', type=float, help='B threshold (proprortion of graphs that shall not go through).', default=0.
 )
 
 
@@ -70,10 +76,10 @@ parser_disintervals.add_argument(
     "graph", type=str, help='Path to a .gfa graph'
 )
 parser_disintervals.add_argument(
-    '-a', '--set_a', type=str, help='A first set of paths', nargs='+'
+    '-a', '--set_a', type=str, help='A first set of paths', nargs='+',
 )
 parser_disintervals.add_argument(
-    '-b', '--set_b', type=str, help='A second set of paths', nargs='+'
+    '-b', '--set_b', type=str, help='A second set of paths', nargs='+',
 )
 parser_disintervals.add_argument(
     '-r', '--reference', type=str, help='A reference name. Must be in one of the sets.'
@@ -82,7 +88,7 @@ parser_disintervals.add_argument(
     '-t', '--threshold_upper', type=float, help='A threshold (proprortion of graphs that shall go through).', default=1.
 )
 parser_disintervals.add_argument(
-    '-l', '--threshold_lower', type=float, help='B threshold (proprortion of graphs that shall not go through).', default=1.
+    '-l', '--threshold_lower', type=float, help='B threshold (proprortion of graphs that shall not go through).', default=0.
 )
 
 
